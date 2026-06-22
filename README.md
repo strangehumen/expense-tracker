@@ -1,7 +1,12 @@
 # 支出管理アプリ
-https://strangehumen.github.io/expense-tracker/
 
 HTML、CSS、JavaScriptで作成したシンプルな支出管理アプリです。
+
+##デモ
+https://strangehumen.github.io/expense-tracker/
+
+##スクリーンショット
+
 
 ## 制作背景
 
