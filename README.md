@@ -2,10 +2,10 @@
 
 HTML、CSS、JavaScriptで作成したシンプルな支出管理アプリです。
 
-##デモ
+## デモ
 https://strangehumen.github.io/expense-tracker/
 
-##スクリーンショット
+## スクリーンショット
 
 
 ## 制作背景
