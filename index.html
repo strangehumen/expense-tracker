@@ -1,22 +1,108 @@
-EXPENSE TRACKER
-支出管理
-今月の合計 ¥0
-金額
-¥ 
-0
-内容 
-例：コンビニ、ランチ
-カテゴリー
-🍙食費 🧺日用品 🚃交通 🎮娯楽 💊医療 📦その他 ＋追加
-カテゴリー名
- 
-🏷️ タグ
- 追加
-追加する
-履歴
-0件
-🧾
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>支出管理アプリ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
 
-支出の記録がありません
+  <div class="app-wrapper">
 
-上のフォームから追加してみましょう
+    <header class="app-header">
+      <span class="header-label">EXPENSE TRACKER</span>
+      <h1 class="app-title">支出管理</h1>
+    </header>
+
+    <div class="summary-card">
+      <span class="summary-label" id="summaryLabel">今月の合計</span>
+      <span class="summary-amount"><span class="yen">¥</span><span id="totalAmount">0</span></span>
+    </div>
+
+    <form class="input-card" id="expenseForm">
+      <div class="field">
+        <label for="amountInput">金額</label>
+        <div class="amount-field">
+          <span class="yen-prefix">¥</span>
+          <input type="number" id="amountInput" inputmode="numeric" placeholder="0" min="0" required />
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="descInput">内容</label>
+        <input type="text" id="descInput" placeholder="例：コンビニ、ランチ" maxlength="40" required />
+      </div>
+
+      <div class="field">
+        <label>カテゴリー</label>
+        <div class="category-grid" id="categoryGrid">
+          <button type="button" class="category-btn active" data-category="食費">
+            <span class="cat-icon">🍙</span><span>食費</span>
+          </button>
+          <button type="button" class="category-btn" data-category="日用品">
+            <span class="cat-icon">🧺</span><span>日用品</span>
+          </button>
+          <button type="button" class="category-btn" data-category="交通">
+            <span class="cat-icon">🚃</span><span>交通</span>
+          </button>
+          <button type="button" class="category-btn" data-category="娯楽">
+            <span class="cat-icon">🎮</span><span>娯楽</span>
+          </button>
+          <button type="button" class="category-btn" data-category="医療">
+            <span class="cat-icon">💊</span><span>医療</span>
+          </button>
+          <button type="button" class="category-btn" data-category="その他">
+            <span class="cat-icon">📦</span><span>その他</span>
+          </button>
+          <button type="button" class="category-btn add-category-btn" id="addCategoryBtn">
+            <span class="cat-icon">＋</span><span>追加</span>
+          </button>
+        </div>
+
+        <div class="new-category-form" id="newCategoryForm">
+          <input type="text" id="newCategoryInput" placeholder="カテゴリー名" maxlength="10" />
+          <select id="newCategoryIcon">
+            <option value="🏷️">🏷️ タグ</option>
+            <option value="🍔">🍔 食べ物</option>
+            <option value="☕">☕ カフェ</option>
+            <option value="👕">👕 衣服</option>
+            <option value="🏠">🏠 住居</option>
+            <option value="💡">💡 light</option>
+            <option value="📱">📱 通信</option>
+            <option value="🎁">🎁 ギフト</option>
+            <option value="✈️">✈️ 旅行</option>
+            <option value="💰">💰 お金</option>
+            <option value="📚">📚 学習</option>
+            <option value="🐾">🐾 ペット</option>
+          </select>
+          <button type="button" class="new-category-add" id="newCategoryAddBtn">追加</button>
+        </div>
+      </div>
+
+      <button type="submit" class="add-btn">追加する</button>
+    </form>
+
+    <div class="list-section">
+      <div class="list-header">
+        <h2 class="list-title">履歴</h2>
+        <span class="list-count" id="listCount">0件</span>
+      </div>
+
+      <ul class="expense-list" id="expenseList"></ul>
+
+      <div class="empty-state" id="emptyState">
+        <p class="empty-icon">🧾</p>
+        <p class="empty-text">支出の記録がありません</p>
+        <p class="empty-sub">上のフォームから追加してみましょう</p>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
